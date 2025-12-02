@@ -476,329 +476,292 @@ require_once '../../includes/sidebar.php';
     </script>
 
     <style>
-    .lab-header {
-        background: linear-gradient(135deg, #16a085, #138d75) !important;
-    }
+/* ================================================
+   Lab Theme
+================================================ */
+.lab-header {
+    background: linear-gradient(135deg, #16a085, #138d75) !important;
+}
 
-    .lab-sidebar {
-        background: linear-gradient(180deg, #16a085 0%, #138d75 100%) !important;
-    }
+.lab-sidebar {
+    background: linear-gradient(180deg, #16a085 0%, #138d75 100%) !important;
+}
 
-    .lab-sidebar .nav-link {
-        color: #d1f2eb !important;
-        border-left-color: transparent;
-    }
+.lab-sidebar .nav-link {
+    color: #d1f2eb !important;
+    border-left-color: transparent;
+}
 
-    .lab-sidebar .nav-link:hover,
-    .lab-sidebar .nav-link.active {
-        background: rgba(22, 160, 133, 0.2);
-        color: white !important;
-        border-left-color: white;
-    }
+.lab-sidebar .nav-link:hover,
+.lab-sidebar .nav-link.active {
+    background: rgba(22, 160, 133, 0.2) !important;
+    color: white !important;
+    border-left-color: white !important;
+}
 
-    .lab-sidebar .nav-section-title {
-        color: #a2d9ce !important;
-    }
+.lab-sidebar .nav-section-title {
+    color: #a2d9ce !important;
+}
 
-    .lab-content-header {
-        background: linear-gradient(135deg, #16a085, #138d75) !important;
-        color: white !important;
-    }
+.lab-content-header {
+    background: linear-gradient(135deg, #16a085, #138d75) !important;
+    color: white !important;
+}
 
-    .lab-content-header h2,
-    .lab-content-header .welcome-message {
-        color: white !important;
-    }
+.lab-content-header h2,
+.lab-content-header .welcome-message {
+    color: white !important;
+}
 
-    .lab-controls {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
+/* ================================================
+   Controls & Status
+================================================ */
+.lab-controls {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+}
 
-    .lab-status {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.8rem 1.2rem;
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 8px;
-        color: white;
-    }
+.lab-status {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.8rem 1.2rem !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 8px !important;
+    color: white !important;
+}
 
-    .pending-tests {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
+/* ================================================
+   Pending Tests
+================================================ */
+.pending-tests {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+}
 
-    .test-item {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        padding: 1.2rem;
-        background: #f8f9fa;
-        border-radius: 8px;
-        border-left: 4px solid #16a085;
-    }
+.test-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    padding: 1.2rem !important;
+    background: #f8f9fa !important;
+    border-radius: 8px !important;
+    border-left: 4px solid #16a085 !important;
+}
 
-    .test-header {
-        flex: 1;
-    }
+.test-header {
+    flex: 1 !important;
+}
 
-    .test-header h4 {
-        margin: 0 0 0.5rem 0;
-        color: #2c3e50;
-    }
+.test-header h4 {
+    margin-bottom: 0.5rem !important;
+    color: #2c3e50 !important;
+}
 
-    .test-info {
-        min-width: 200px;
-    }
+.test-info {
+    min-width: 200px !important;
+}
 
-    .patient-name, .test-type, .test-time {
-        margin: 0.2rem 0;
-        color: #7f8c8d;
-        font-size: 0.9rem;
-    }
+.patient-name,
+.test-type,
+.test-time {
+    margin: 0.2rem 0 !important;
+    color: #7f8c8d !important;
+    font-size: 0.9rem !important;
+}
 
-    .test-actions {
-        display: flex;
-        gap: 0.5rem;
-    }
+.test-actions {
+    display: flex !important;
+    gap: 0.5rem !important;
+}
 
-    .equipment-status {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
+/* ================================================
+   Equipment Status
+================================================ */
+.equipment-status {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+}
 
-    .equipment-item {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        padding: 1.5rem;
-        background: #f8f9fa;
-        border-radius: 8px;
-        border-left: 4px solid;
-    }
+.equipment-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    padding: 1.5rem !important;
+    background: #f8f9fa !important;
+    border-radius: 8px !important;
+    border-left: 4px solid !important;
+}
 
-    .equipment-item.operational {
-        border-left-color: #2ecc71;
-    }
+.equipment-item.operational { border-left-color: #2ecc71 !important; }
+.equipment-item.maintenance { border-left-color: #f39c12 !important; }
+.equipment-item.offline { border-left-color: #e74c3c !important; }
 
-    .equipment-item.maintenance {
-        border-left-color: #f39c12;
-    }
+.equipment-icon {
+    font-size: 2.5rem !important;
+    flex-shrink: 0 !important;
+}
 
-    .equipment-item.offline {
-        border-left-color: #e74c3c;
-    }
+.equipment-info {
+    flex: 1 !important;
+}
 
-    .equipment-icon {
-        font-size: 2.5rem;
-        flex-shrink: 0;
-    }
+.equipment-info h4 { margin-bottom: 0.5rem !important; color: #2c3e50 !important; }
+.equipment-info p { margin-bottom: 0.8rem !important; color: #7f8c8d !important; }
 
-    .equipment-info {
-        flex: 1;
-    }
+.equipment-metrics {
+    display: flex !important;
+    gap: 1.5rem !important;
+}
 
-    .equipment-info h4 {
-        margin: 0 0 0.5rem 0;
-        color: #2c3e50;
-    }
+.equipment-metrics .metric {
+    font-size: 0.8rem !important;
+    color: #7f8c8d !important;
+    background: white !important;
+    padding: 0.3rem 0.6rem !important;
+    border-radius: 12px !important;
+}
 
-    .equipment-info p {
-        margin: 0 0 0.8rem 0;
-        color: #7f8c8d;
-    }
+.equipment-status-indicator {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+}
 
-    .equipment-metrics {
-        display: flex;
-        gap: 1.5rem;
-    }
+.status-dot {
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+}
 
-    .equipment-metrics .metric {
-        font-size: 0.8rem;
-        color: #7f8c8d;
-        background: white;
-        padding: 0.3rem 0.6rem;
-        border-radius: 12px;
-    }
+.status-dot.operational { background: #2ecc71; box-shadow: 0 0 10px #2ecc71; }
+.status-dot.maintenance { background: #f39c12; box-shadow: 0 0 10px #f39c12; }
+.status-dot.offline { background: #e74c3c; box-shadow: 0 0 10px #e74c3c; }
 
-    .equipment-status-indicator {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
+.status-text {
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+}
 
-    .status-dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-    }
+/* ================================================
+   Lab Insights
+================================================ */
+.lab-insights {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 1.5rem !important;
+}
 
-    .status-dot.operational {
-        background: #2ecc71;
-        box-shadow: 0 0 10px #2ecc71;
-    }
+.insight-card {
+    background: #f8f9fa !important;
+    padding: 1.5rem !important;
+    border-radius: 10px !important;
+    border-left: 4px solid #16a085 !important;
+}
 
-    .status-dot.maintenance {
-        background: #f39c12;
-        box-shadow: 0 0 10px #f39c12;
-    }
+.insight-icon {
+    font-size: 2.5rem !important;
+    margin-bottom: 1rem !important;
+}
 
-    .status-dot.offline {
-        background: #e74c3c;
-        box-shadow: 0 0 10px #e74c3c;
-    }
+.insight-content h4 {
+    margin-bottom: 0.8rem !important;
+    color: #2c3e50 !important;
+}
 
-    .status-text {
-        font-size: 0.8rem;
-        font-weight: 500;
-    }
+.insight-content p {
+    margin-bottom: 1.5rem !important;
+    color: #7f8c8d !important;
+    line-height: 1.5 !important;
+}
 
-    .lab-insights {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
-    }
+.insight-metrics {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+    margin-bottom: 1.5rem !important;
+}
 
-    .insight-card {
-        background: #f8f9fa;
-        padding: 1.5rem;
-        border-radius: 10px;
-        border-left: 4px solid #16a085;
-    }
+.insight-metrics .metric {
+    text-align: center !important;
+    padding: 0.8rem !important;
+    background: white !important;
+    border-radius: 6px !important;
+}
 
-    .insight-icon {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
+.metric-value {
+    display: block !important;
+    font-weight: 700 !important;
+    color: #16a085 !important;
+    margin-bottom: 0.3rem !important;
+}
 
-    .insight-content h4 {
-        margin: 0 0 0.8rem 0;
-        color: #2c3e50;
-    }
+.metric-label {
+    font-size: 0.8rem !important;
+    color: #7f8c8d !important;
+}
 
-    .insight-content p {
-        margin: 0 0 1.5rem 0;
-        color: #7f8c8d;
-        line-height: 1.5;
-    }
+/* ================================================
+   Test Statistics
+================================================ */
+.test-statistics { padding: 1rem 0 !important; }
 
-    .insight-metrics {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
-    }
+.statistics-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.5rem !important;
+}
 
-    .insight-metrics .metric {
-        text-align: center;
-        padding: 0.8rem;
-        background: white;
-        border-radius: 6px;
-    }
+.stat-item {
+    text-align: center !important;
+    padding: 1.5rem !important;
+    background: #f8f9fa !important;
+    border-radius: 8px !important;
+}
 
-    .metric-value {
-        display: block;
-        font-weight: 700;
-        color: #16a085;
-        margin-bottom: 0.3rem;
-    }
+.stat-value {
+    display: block !important;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    color: #16a085 !important;
+    margin-bottom: 0.5rem !important;
+}
 
-    .metric-label {
-        font-size: 0.8rem;
-        color: #7f8c8d;
-    }
+.stat-label {
+    font-size: 0.9rem !important;
+    color: #7f8c8d !important;
+    font-weight: 500 !important;
+}
 
-    .test-statistics {
-        padding: 1rem 0;
-    }
+.no-tests {
+    text-align: center !important;
+    padding: 2rem !important;
+    color: #7f8c8d !important;
+}
 
-    .statistics-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-    }
+/* ================================================
+   Responsive Adjustments
+================================================ */
+@media (max-width: 768px) {
+    .lab-insights { grid-template-columns: 1fr !important; }
+    .statistics-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .test-item { flex-direction: column !important; align-items: flex-start !important; gap: 1rem !important; }
+    .test-actions { align-self: stretch !important; justify-content: stretch !important; }
+    .test-actions .btn-action { flex: 1 !important; }
+    .equipment-item { flex-direction: column !important; text-align: center !important; }
+    .equipment-metrics { flex-direction: column !important; gap: 0.5rem !important; }
+    .insight-metrics { grid-template-columns: 1fr !important; }
+}
 
-    .stat-item {
-        text-align: center;
-        padding: 1.5rem;
-        background: #f8f9fa;
-        border-radius: 8px;
-    }
+@media (max-width: 480px) {
+    .statistics-grid { grid-template-columns: 1fr !important; }
+    .quick-actions-grid { grid-template-columns: 1fr 1fr !important; }
+}
 
-    .stat-value {
-        display: block;
-        font-size: 2rem;
-        font-weight: 700;
-        color: #16a085;
-        margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-        font-size: 0.9rem;
-        color: #7f8c8d;
-        font-weight: 500;
-    }
-
-    .no-tests {
-        text-align: center;
-        padding: 2rem;
-        color: #7f8c8d;
-    }
-
-    @media (max-width: 768px) {
-        .lab-insights {
-            grid-template-columns: 1fr;
-        }
-
-        .statistics-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .test-item {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .test-actions {
-            align-self: stretch;
-            justify-content: stretch;
-        }
-
-        .test-actions .btn-action {
-            flex: 1;
-        }
-
-        .equipment-item {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .equipment-metrics {
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .insight-metrics {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .statistics-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .quick-actions-grid {
-            grid-template-columns: 1fr 1fr;
-        }
-    }
     </style>
 </body>
 </html>

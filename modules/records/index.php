@@ -55,31 +55,7 @@ require_once '../../includes/sidebar.php';
     <title>Records Dashboard - PHCHMS</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/dashboard.css">
-    <style>
-         <style>
-        /* CSS Reset and Base Styles */
-        * {
-            margin: 0 !important;
-            padding: 0 !important;
-            box-sizing: border-box !important;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-        }
-
-        body {
-            background-color: #f5f7fa !important;
-            color: #333 !important;
-            line-height: 1.6 !important;
-        }
-
-        /* Main Content Area */
-        .main-content {
-            margin-left: 120px !important;
-            padding: 20px !important;
-            min-height: 100vh !important;
-            transition: all 0.3s ease !important;
-        }
-
-    </style>
+    
 </head>
 <body>
     
@@ -508,316 +484,379 @@ require_once '../../includes/sidebar.php';
     });
     </script>
 
-    <style>
-    .records-header {
-        background: linear-gradient(135deg, #2980b9, #2471a3) !important;
-    }
 
-    .records-sidebar {
-        background: linear-gradient(180deg, #2980b9 0%, #2471a3 100%) !important;
-    }
+<style>
+/* CSS Reset and Base Styles */
+* {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
 
-    .records-sidebar .nav-link {
-        color: #d6eaf8 !important;
-        border-left-color: transparent;
-    }
+body {
+    background-color: #f5f7fa !important;
+    color: #333 !important;
+    line-height: 1.6 !important;
+}
 
-    .records-sidebar .nav-link:hover,
-    .records-sidebar .nav-link.active {
-        background: rgba(41, 128, 185, 0.2);
-        color: white !important;
-        border-left-color: white;
-    }
+/* Main Content Area */
+.main-content {
+    margin-left: 120px !important;
+    padding: 20px !important;
+    min-height: 100vh !important;
+    transition: all 0.3s ease !important;
+}
 
-    .records-sidebar .nav-section-title {
-        color: #aed6f1 !important;
-    }
+/* Header and Sidebar */
+.records-header {
+    background: linear-gradient(135deg, #2980b9, #2471a3) !important;
+}
 
-    .records-content-header {
-        background: linear-gradient(135deg, #2980b9, #2471a3) !important;
-        color: white !important;
-    }
+.records-sidebar {
+    background: linear-gradient(180deg, #2980b9 0%, #2471a3 100%) !important;
+}
 
-    .records-content-header h2,
-    .records-content-header .welcome-message {
-        color: white !important;
-    }
+.records-sidebar .nav-link {
+    color: #d6eaf8 !important;
+    border-left-color: transparent;
+}
 
-    .records-controls {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
+.records-sidebar .nav-link:hover,
+.records-sidebar .nav-link.active {
+    background: rgba(41, 128, 185, 0.2);
+    color: white !important;
+    border-left-color: white;
+}
 
-    .recent-patients {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
+.records-sidebar .nav-section-title {
+    color: #aed6f1 !important;
+}
 
-    .patient-item {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 1rem;
-        background: #f8f9fa;
-        border-radius: 8px;
-        border-left: 4px solid #2980b9;
-    }
+.records-content-header {
+    background: linear-gradient(135deg, #2980b9, #2471a3) !important;
+    color: white !important;
+}
 
-    .patient-avatar {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background: #2980b9;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 1.2rem;
-        flex-shrink: 0;
-    }
+.records-content-header h2,
+.records-content-header .welcome-message {
+    color: white !important;
+}
 
-    .patient-info {
-        flex: 1;
-    }
+.records-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
 
-    .patient-info h4 {
-        margin: 0 0 0.3rem 0;
-        color: #2c3e50;
-    }
+/* Recent Patients List */
+.recent-patients {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
-    .patient-id, .registration-date {
-        color: #7f8c8d;
-        font-size: 0.9rem;
-        margin: 0.1rem 0;
-    }
+.patient-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #2980b9;
+}
 
-    .patient-actions {
-        display: flex;
-        gap: 0.5rem;
-    }
+.patient-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #2980b9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
 
-    .authorization-queue {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
+.patient-info {
+    flex: 1;
+}
 
-    .queue-item {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        padding: 1.5rem;
-        border-radius: 8px;
-        border-left: 4px solid;
-    }
+.patient-info h4 {
+    margin: 0 0 0.3rem 0;
+    color: #2c3e50;
+}
 
-    .queue-item.urgent {
-        background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), transparent);
-        border-left-color: #e74c3c;
-    }
+.patient-id,
+.registration-date {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin: 0.1rem 0;
+}
 
-    .queue-item.normal {
-        background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), transparent);
-        border-left-color: #3498db;
-    }
+.patient-actions {
+    display: flex;
+    gap: 0.5rem;
+}
 
-    .queue-item.low {
-        background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), transparent);
-        border-left-color: #2ecc71;
-    }
+/* Authorization Queue */
+.authorization-queue {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
-    .queue-priority {
-        min-width: 80px;
-    }
+.queue-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+}
 
-    .priority-badge {
-        padding: 0.4rem 0.8rem;
-        border-radius: 15px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        text-transform: uppercase;
-    }
+.queue-item.urgent {
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), transparent);
+    border-left-color: #e74c3c;
+}
 
-    .queue-item.urgent .priority-badge {
-        background: #e74c3c;
-        color: white;
-    }
+.queue-item.normal {
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), transparent);
+    border-left-color: #3498db;
+}
 
-    .queue-item.normal .priority-badge {
-        background: #3498db;
-        color: white;
-    }
+.queue-item.low {
+    background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), transparent);
+    border-left-color: #2ecc71;
+}
 
-    .queue-item.low .priority-badge {
-        background: #2ecc71;
-        color: white;
-    }
+.queue-priority {
+    min-width: 80px;
+}
 
-    .queue-info {
-        flex: 1;
-    }
+.priority-badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
 
-    .queue-info h4 {
-        margin: 0 0 0.5rem 0;
-        color: #2c3e50;
-    }
+.queue-item.urgent .priority-badge {
+    background: #e74c3c;
+    color: white;
+}
 
-    .queue-info p {
-        margin: 0.2rem 0;
-        color: #7f8c8d;
-        font-size: 0.9rem;
-    }
+.queue-item.normal .priority-badge {
+    background: #3498db;
+    color: white;
+}
 
-    .request-time {
-        font-style: italic;
-    }
+.queue-item.low .priority-badge {
+    background: #2ecc71;
+    color: white;
+}
 
-    .queue-actions {
-        display: flex;
-        gap: 0.5rem;
+.queue-info {
+    flex: 1;
+}
+
+.queue-info h4 {
+    margin: 0 0 0.5rem 0;
+    color: #2c3e50;
+}
+
+.queue-info p {
+    margin: 0.2rem 0;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.request-time {
+    font-style: italic;
+}
+
+.queue-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Data Quality Metrics */
+.data-quality-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.quality-metric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.metric-chart {
+    margin-bottom: 1rem;
+}
+
+.chart-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: conic-gradient(#2980b9 0%, #e9ecef 0 100%);
+    transition: all 1s ease;
+}
+
+.chart-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2980b9;
+}
+
+.metric-info h4 {
+    margin: 0 0 0.5rem 0;
+    color: #2c3e50;
+}
+
+.metric-info p {
+    margin: 0;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* AI Insights */
+.ai-insights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.insight-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #2980b9;
+}
+
+.insight-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.insight-content {
+    flex: 1;
+}
+
+.insight-content h4 {
+    margin: 0 0 0.8rem 0;
+    color: #2c3e50;
+}
+
+.insight-content p {
+    margin: 0 0 1rem 0;
+    color: #7f8c8d;
+    line-height: 1.5;
+}
+
+.insight-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.no-patients {
+    text-align: center;
+    padding: 2rem;
+    color: #7f8c8d;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 992px) {
+    .main-content {
+        margin-left: 0 !important;
+        padding: 15px !important;
     }
 
     .data-quality-metrics {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 2rem;
-    }
-
-    .quality-metric {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 1.5rem;
-        background: #f8f9fa;
-        border-radius: 10px;
-    }
-
-    .metric-chart {
-        margin-bottom: 1rem;
-    }
-
-    .chart-circle {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: conic-gradient(#2980b9 0%, #e9ecef 0% 100%);
-        transition: all 1s ease;
-    }
-
-    .chart-value {
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: #2980b9;
-    }
-
-    .metric-info h4 {
-        margin: 0 0 0.5rem 0;
-        color: #2c3e50;
-    }
-
-    .metric-info p {
-        margin: 0;
-        color: #7f8c8d;
-        font-size: 0.9rem;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .ai-insights {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: 1fr;
     }
 
-    .insight-card {
-        display: flex;
+    .queue-item {
+        flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
-        padding: 1.5rem;
-        background: #f8f9fa;
-        border-radius: 10px;
-        border-left: 4px solid #2980b9;
     }
 
-    .insight-icon {
-        font-size: 2rem;
-        flex-shrink: 0;
+    .queue-actions {
+        justify-content: stretch;
     }
 
-    .insight-content {
+    .queue-actions .btn-action {
         flex: 1;
     }
 
-    .insight-content h4 {
-        margin: 0 0 0.8rem 0;
-        color: #2c3e50;
-    }
-
-    .insight-content p {
-        margin: 0 0 1rem 0;
-        color: #7f8c8d;
-        line-height: 1.5;
-    }
-
-    .insight-actions {
-        display: flex;
-        gap: 0.5rem;
-    }
-
-    .no-patients {
+    .patient-item {
+        flex-direction: column;
         text-align: center;
-        padding: 2rem;
-        color: #7f8c8d;
     }
 
-    @media (max-width: 768px) {
-        .data-quality-metrics {
-            grid-template-columns: repeat(2, 1fr);
-        }
+    .patient-actions {
+        justify-content: center;
+    }
+}
 
-        .ai-insights {
-            grid-template-columns: 1fr;
-        }
-
-        .queue-item {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .queue-actions {
-            align-self: stretch;
-            justify-content: stretch;
-        }
-
-        .queue-actions .btn-action {
-            flex: 1;
-        }
-
-        .patient-item {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .patient-actions {
-            align-self: stretch;
-            justify-content: center;
-        }
+@media (max-width: 768px) {
+    .data-quality-metrics {
+        grid-template-columns: 1fr;
     }
 
-    @media (max-width: 480px) {
-        .data-quality-metrics {
-            grid-template-columns: 1fr;
-        }
-
-        .quick-actions-grid {
-            grid-template-columns: 1fr 1fr;
-        }
+    .ai-insights {
+        grid-template-columns: 1fr;
     }
+}
+
+@media (max-width: 480px) {
+    .records-sidebar {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        padding: 10px !important;
+    }
+
+    .patient-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .insight-icon {
+        font-size: 1.5rem;
+    }
+
+    .chart-circle {
+        width: 80px;
+        height: 80px;
+    }
+
+    .chart-value {
+        font-size: 1rem;
+    }
+}
     </style>
 </body>
 </html>

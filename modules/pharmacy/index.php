@@ -57,31 +57,7 @@ require_once '../../includes/sidebar.php';
     <title>Pharmacy Dashboard - PHCHMS</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/dashboard.css">
-     <style>
-         <style>
-        /* CSS Reset and Base Styles */
-        * {
-            margin: 0 !important;
-            padding: 0 !important;
-            box-sizing: border-box !important;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-        }
-
-        body {
-            background-color: #f5f7fa !important;
-            color: #333 !important;
-            line-height: 1.6 !important;
-        }
-
-        /* Main Content Area */
-        .main-content {
-            margin-left: 120px !important;
-            padding: 20px !important;
-            min-height: 100vh !important;
-            transition: all 0.3s ease !important;
-        }
-
-    </style>
+    
 </head>
 <body>
     
@@ -513,274 +489,329 @@ require_once '../../includes/sidebar.php';
     }
     </script>
 
-    <style>
-    .pharmacy-header {
-        background: linear-gradient(135deg, #8e44ad, #7d3c98) !important;
-    }
 
-    .pharmacy-sidebar {
-        background: linear-gradient(180deg, #8e44ad 0%, #7d3c98 100%) !important;
-    }
+ <style>
+/* CSS Reset and Base Styles */
+* {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
 
-    .pharmacy-sidebar .nav-link {
-        color: #e8daef !important;
-        border-left-color: transparent;
-    }
+body {
+    background-color: #f5f7fa !important;
+    color: #333 !important;
+    line-height: 1.6 !important;
+}
 
-    .pharmacy-sidebar .nav-link:hover,
-    .pharmacy-sidebar .nav-link.active {
-        background: rgba(142, 68, 173, 0.2);
-        color: white !important;
-        border-left-color: white;
-    }
+/* Main Content Area */
+.main-content {
+    margin-left: 120px !important;
+    padding: 20px !important;
+    min-height: 100vh !important;
+    transition: all 0.3s ease !important;
+}
 
-    .pharmacy-sidebar .nav-section-title {
-        color: #d2b4de !important;
-    }
+/* Header and Sidebar */
+.pharmacy-header {
+    background: linear-gradient(135deg, #8e44ad, #7d3c98) !important;
+}
 
-    .pharmacy-content-header {
-        background: linear-gradient(135deg, #8e44ad, #7d3c98) !important;
-        color: white !important;
-    }
+.pharmacy-sidebar {
+    background: linear-gradient(180deg, #8e44ad 0%, #7d3c98 100%) !important;
+}
 
-    .pharmacy-content-header h2,
-    .pharmacy-content-header .welcome-message {
-        color: white !important;
-    }
+.pharmacy-sidebar .nav-link {
+    color: #e8daef !important;
+    border-left-color: transparent;
+}
 
-    .pharmacy-controls {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
+.pharmacy-sidebar .nav-link:hover,
+.pharmacy-sidebar .nav-link.active {
+    background: rgba(142, 68, 173, 0.2);
+    color: white !important;
+    border-left-color: white;
+}
 
-    .pharmacy-status {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.8rem 1.2rem;
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 8px;
-        color: white;
-    }
+.pharmacy-sidebar .nav-section-title {
+    color: #d2b4de !important;
+}
 
-    .pending-prescriptions {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
+.pharmacy-content-header {
+    background: linear-gradient(135deg, #8e44ad, #7d3c98) !important;
+    color: white !important;
+}
 
-    .prescription-item {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        padding: 1.2rem;
-        background: #f8f9fa;
-        border-radius: 8px;
-        border-left: 4px solid #8e44ad;
-    }
+.pharmacy-content-header h2,
+.pharmacy-content-header .welcome-message {
+    color: white !important;
+}
 
-    .prescription-header {
-        flex: 1;
-    }
+.pharmacy-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
 
-    .prescription-header h4 {
-        margin: 0 0 0.3rem 0;
-        color: #2c3e50;
-    }
+/* Pharmacy Status */
+.pharmacy-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.2rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+}
 
-    .patient-id {
-        color: #7f8c8d;
-        font-size: 0.9rem;
-    }
+/* Pending Prescriptions */
+.pending-prescriptions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
-    .prescription-info {
-        min-width: 150px;
-    }
+.prescription-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #8e44ad;
+}
 
-    .doctor-name, .prescription-date {
-        margin: 0.2rem 0;
-        color: #7f8c8d;
-        font-size: 0.9rem;
-    }
+.prescription-header {
+    flex: 1;
+}
 
-    .prescription-actions {
-        display: flex;
-        gap: 0.5rem;
-    }
+.prescription-header h4 {
+    margin: 0 0 0.3rem 0;
+    color: #2c3e50;
+}
 
-    .stock-alerts {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
+.patient-id {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
 
-    .alert-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 1rem;
-        padding: 1.5rem;
-        border-radius: 8px;
-        border-left: 4px solid;
-    }
+.prescription-info {
+    min-width: 150px;
+}
 
-    .alert-item.critical {
-        background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), transparent);
-        border-left-color: #e74c3c;
-    }
+.doctor-name,
+.prescription-date {
+    margin: 0.2rem 0;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
 
-    .alert-item.warning {
-        background: linear-gradient(135deg, rgba(243, 156, 18, 0.1), transparent);
-        border-left-color: #f39c12;
-    }
+.prescription-actions {
+    display: flex;
+    gap: 0.5rem;
+}
 
-    .alert-icon {
-        font-size: 2rem;
-        flex-shrink: 0;
-    }
+/* Stock Alerts */
+.stock-alerts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
-    .alert-content {
-        flex: 1;
-    }
+.alert-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+}
 
-    .alert-content h4 {
-        margin: 0 0 0.5rem 0;
-        color: #2c3e50;
-    }
+.alert-item.critical {
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), transparent);
+    border-left-color: #e74c3c;
+}
 
-    .alert-content p {
-        margin: 0 0 0.8rem 0;
-        color: #7f8c8d;
-    }
+.alert-item.warning {
+    background: linear-gradient(135deg, rgba(243, 156, 18, 0.1), transparent);
+    border-left-color: #f39c12;
+}
 
-    .alert-meta {
-        display: flex;
-        gap: 1.5rem;
-    }
+.alert-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
 
-    .alert-supplier, .alert-lead-time {
-        font-size: 0.8rem;
-        color: #7f8c8d;
-    }
+.alert-content {
+    flex: 1;
+}
 
-    .alert-actions {
-        display: flex;
-        gap: 0.5rem;
+.alert-content h4 {
+    margin: 0 0 0.5rem 0;
+    color: #2c3e50;
+}
+
+.alert-content p {
+    margin: 0 0 0.8rem 0;
+    color: #7f8c8d;
+}
+
+.alert-meta {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.alert-supplier,
+.alert-lead-time {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+}
+
+.alert-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Pharmacy Insights */
+.pharmacy-insights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.insight-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #8e44ad;
+}
+
+.insight-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.insight-content h4 {
+    margin: 0 0 0.8rem 0;
+    color: #2c3e50;
+}
+
+.insight-content p {
+    margin: 0 0 1.5rem 0;
+    color: #7f8c8d;
+    line-height: 1.5;
+}
+
+.insight-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.insight-metrics .metric {
+    text-align: center;
+    padding: 0.8rem;
+    background: white;
+    border-radius: 6px;
+}
+
+.metric-value {
+    display: block;
+    font-weight: 700;
+    color: #8e44ad;
+    margin-bottom: 0.3rem;
+}
+
+.metric-label {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+}
+
+/* Dispensing Activity */
+.dispensing-activity {
+    overflow-x: auto;
+}
+
+.no-prescriptions {
+    text-align: center;
+    padding: 2rem;
+    color: #7f8c8d;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 992px) {
+    .main-content {
+        margin-left: 0 !important;
+        padding: 15px !important;
     }
 
     .pharmacy-insights {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
-    }
-
-    .insight-card {
-        background: #f8f9fa;
-        padding: 1.5rem;
-        border-radius: 10px;
-        border-left: 4px solid #8e44ad;
-    }
-
-    .insight-icon {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .insight-content h4 {
-        margin: 0 0 0.8rem 0;
-        color: #2c3e50;
-    }
-
-    .insight-content p {
-        margin: 0 0 1.5rem 0;
-        color: #7f8c8d;
-        line-height: 1.5;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .insight-metrics {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
+        grid-template-columns: 1fr;
     }
 
-    .insight-metrics .metric {
-        text-align: center;
-        padding: 0.8rem;
-        background: white;
-        border-radius: 6px;
+    .prescription-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
     }
 
+    .prescription-actions,
+    .alert-actions {
+        justify-content: stretch;
+    }
+
+    .prescription-actions .btn-action,
+    .alert-actions .btn-action {
+        flex: 1;
+    }
+
+    .alert-item {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .pharmacy-insights {
+        grid-template-columns: 1fr;
+    }
+
+    .insight-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .alert-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .pharmacy-sidebar {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        padding: 10px !important;
+    }
+
+    .prescription-header h4,
     .metric-value {
-        display: block;
-        font-weight: 700;
-        color: #8e44ad;
-        margin-bottom: 0.3rem;
+        font-size: 0.9rem;
     }
 
-    .metric-label {
-        font-size: 0.8rem;
-        color: #7f8c8d;
+    .insight-icon,
+    .alert-icon {
+        font-size: 1.8rem;
     }
+}
 
-    .dispensing-activity {
-        overflow-x: auto;
-    }
-
-    .no-prescriptions {
-        text-align: center;
-        padding: 2rem;
-        color: #7f8c8d;
-    }
-
-    @media (max-width: 768px) {
-        .pharmacy-insights {
-            grid-template-columns: 1fr;
-        }
-
-        .prescription-item {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .prescription-actions {
-            align-self: stretch;
-            justify-content: stretch;
-        }
-
-        .prescription-actions .btn-action {
-            flex: 1;
-        }
-
-        .alert-item {
-            flex-direction: column;
-        }
-
-        .alert-actions {
-            align-self: stretch;
-            justify-content: stretch;
-        }
-
-        .alert-actions .btn-action {
-            flex: 1;
-        }
-
-        .insight-metrics {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .quick-actions-grid {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .alert-meta {
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-    }
-    </style>
+</style>
 </body>
 </html>

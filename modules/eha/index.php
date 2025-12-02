@@ -57,33 +57,6 @@ require_once '../../includes/sidebar.php';
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/dashboard.css">
 
-<style>
-        /* Main Content Area */
-        .main-content {
-            margin-left: 120px !important;
-            padding: 20px !important;
-            min-height: 100vh !important;
-            transition: all 0.3s ease !important;
-        }
-
-        /* Content Header */
-        .content-header {
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            margin-bottom: 30px !important;
-            padding: 20px 0 !important;
-            border-bottom: 1px solid #e1e5eb !important;
-        }
-
-        .content-header h2 {
-            font-size: 28px !important;
-            font-weight: 700 !important;
-            color: #1a365d !important;
-            margin-bottom: 5px !important;
-        }
-</style>
-
 </head>
 <body>
         <!-- Main Content -->
@@ -507,329 +480,341 @@ require_once '../../includes/sidebar.php';
     }
     </script>
 
-    <style>
-    .eha-header {
-        background: linear-gradient(135deg, #221004ff, #ba4a00) !important;
-    }
+<style>
+/* ================================================
+   Main Content Area
+================================================ */
+.main-content {
+    margin-left: 120px !important;
+    padding: 20px !important;
+    min-height: 100vh !important;
+    transition: all 0.3s ease !important;
+}
 
-    .eha-sidebar {
-        background: linear-gradient(180deg, #d35400 0%, #ba4a00 100%) !important;
-    }
+/* ================================================
+   Content Header
+================================================ */
+.content-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 30px !important;
+    padding: 20px 0 !important;
+    border-bottom: 1px solid #e1e5eb !important;
+}
 
-    .eha-sidebar .nav-link {
-        color: #fdebd0 !important;
-        border-left-color: transparent;
-    }
+.content-header h2 {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #1a365d !important;
+    margin-bottom: 5px !important;
+}
 
-    .eha-sidebar .nav-link:hover,
-    .eha-sidebar .nav-link.active {
-        background: rgba(211, 84, 0, 0.2);
-        color: white !important;
-        border-left-color: white;
-    }
+/* ================================================
+   EHA Theme Colors
+================================================ */
+.eha-header {
+    background: linear-gradient(135deg, #221004ff, #ba4a00) !important;
+}
 
-    .eha-sidebar .nav-section-title {
-        color: #f0b27a !important;
-    }
+.eha-sidebar {
+    background: linear-gradient(180deg, #d35400 0%, #ba4a00 100%) !important;
+}
 
-    .eha-content-header {
-        background: linear-gradient(135deg, #d35400, #ba4a00) !important;
-        color: white !important;
-    }
+.eha-sidebar .nav-link {
+    color: #fdebd0 !important;
+    border-left-color: transparent;
+}
 
-    .eha-content-header h2,
-    .eha-content-header .welcome-message {
-        color: white !important;
-    }
+.eha-sidebar .nav-link:hover,
+.eha-sidebar .nav-link.active {
+    background: rgba(211, 84, 0, 0.2) !important;
+    color: white !important;
+    border-left-color: white !important;
+}
 
-    .eha-controls {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
+.eha-sidebar .nav-section-title {
+    color: #f0b27a !important;
+}
 
-    .eha-status {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.8rem 1.2rem;
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 8px;
-        color: white;
-    }
+.eha-content-header {
+    background: linear-gradient(135deg, #d35400, #ba4a00) !important;
+    color: white !important;
+}
 
-    .recent-inspections {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
+.eha-content-header h2,
+.eha-content-header .welcome-message {
+    color: white !important;
+}
 
-    .inspection-item {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        padding: 1.2rem;
-        background: #f8f9fa;
-        border-radius: 8px;
-        border-left: 4px solid #d35400;
-    }
+/* ================================================
+   Controls & Status
+================================================ */
+.eha-controls {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+}
 
-    .inspection-type {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-width: 80px;
-    }
+.eha-status {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.8rem 1.2rem !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 8px !important;
+    color: white !important;
+}
 
-    .type-icon {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-    }
+/* ================================================
+   Inspections List
+================================================ */
+.recent-inspections {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+}
 
-    .type-name {
-        font-size: 0.8rem;
-        color: #7f8c8d;
-        text-align: center;
-    }
+.inspection-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    padding: 1.2rem !important;
+    background: #f8f9fa !important;
+    border-radius: 8px !important;
+    border-left: 4px solid #d35400 !important;
+}
 
-    .inspection-info {
-        flex: 1;
-    }
+.inspection-type {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    min-width: 80px !important;
+}
 
-    .inspection-info h4 {
-        margin: 0 0 0.5rem 0;
-        color: #2c3e50;
-    }
+.type-icon {
+    font-size: 2rem !important;
+    margin-bottom: 0.5rem !important;
+}
 
-    .inspection-date, .inspection-findings {
-        margin: 0.2rem 0;
-        color: #7f8c8d;
-        font-size: 0.9rem;
-    }
+.type-name {
+    font-size: 0.8rem !important;
+    color: #7f8c8d !important;
+    text-align: center !important;
+}
 
-    .inspection-status {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        min-width: 120px;
-    }
+.inspection-info {
+    flex: 1 !important;
+}
 
-    .inspection-actions {
-        display: flex;
-        gap: 0.5rem;
-    }
+.inspection-info h4 {
+    margin-bottom: 0.5rem !important;
+    color: #2c3e50 !important;
+}
 
-    .outbreak-alerts {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
+.inspection-date,
+.inspection-findings {
+    margin: 0.2rem 0 !important;
+    color: #7f8c8d !important;
+    font-size: 0.9rem !important;
+}
 
-    .alert-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 1.5rem;
-        padding: 1.5rem;
-        border-radius: 8px;
-        border-left: 4px solid;
-    }
+.inspection-status {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    min-width: 120px !important;
+}
 
-    .alert-item.high-alert {
-        background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), transparent);
-        border-left-color: #e74c3c;
-    }
+.inspection-actions {
+    display: flex !important;
+    gap: 0.5rem !important;
+}
 
-    .alert-item.medium-alert {
-        background: linear-gradient(135deg, rgba(243, 156, 18, 0.1), transparent);
-        border-left-color: #f39c12;
-    }
+/* ================================================
+   Outbreak Alerts
+================================================ */
+.outbreak-alerts {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+}
 
-    .alert-icon {
-        font-size: 2.5rem;
-        flex-shrink: 0;
-    }
+.alert-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 1.5rem !important;
+    padding: 1.5rem !important;
+    border-radius: 8px !important;
+    border-left: 4px solid !important;
+}
 
-    .alert-content {
-        flex: 1;
-    }
+.alert-item.high-alert {
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), transparent) !important;
+    border-left-color: #e74c3c !important;
+}
 
-    .alert-content h4 {
-        margin: 0 0 0.8rem 0;
-        color: #2c3e50;
-    }
+.alert-item.medium-alert {
+    background: linear-gradient(135deg, rgba(243, 156, 18, 0.1), transparent) !important;
+    border-left-color: #f39c12 !important;
+}
 
-    .alert-content p {
-        margin: 0 0 1rem 0;
-        color: #7f8c8d;
-        line-height: 1.5;
-    }
+.alert-icon {
+    font-size: 2.5rem !important;
+    flex-shrink: 0 !important;
+}
 
-    .alert-meta {
-        display: flex;
-        gap: 1.5rem;
-    }
+.alert-content {
+    flex: 1 !important;
+}
 
-    .alert-location, .alert-cases, .alert-severity {
-        font-size: 0.8rem;
-        color: #7f8c8d;
-        background: white;
-        padding: 0.3rem 0.6rem;
-        border-radius: 12px;
-    }
+.alert-content h4 {
+    margin-bottom: 0.8rem !important;
+    color: #2c3e50 !important;
+}
 
-    .alert-actions {
-        display: flex;
-        gap: 0.5rem;
-    }
+.alert-content p {
+    margin-bottom: 1rem !important;
+    color: #7f8c8d !important;
+    line-height: 1.5 !important;
+}
 
-    .health-metrics {
-        padding: 1rem 0;
-    }
+.alert-meta {
+    display: flex !important;
+    gap: 1.5rem !important;
+}
 
-    .metrics-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-    }
+.alert-location,
+.alert-cases,
+.alert-severity {
+    font-size: 0.8rem !important;
+    color: #7f8c8d !important;
+    background: white !important;
+    padding: 0.3rem 0.6rem !important;
+    border-radius: 12px !important;
+}
 
-    .metric-card {
-        text-align: center;
-        padding: 1.5rem;
-        background: #f8f9fa;
-        border-radius: 8px;
-        border-left: 4px solid #d35400;
-    }
+.alert-actions {
+    display: flex !important;
+    gap: 0.5rem !important;
+}
 
-    .metric-value {
-        display: block;
-        font-size: 2rem;
-        font-weight: 700;
-        color: #d35400;
-        margin-bottom: 0.5rem;
-    }
+/* ================================================
+   Health Metrics
+================================================ */
+.health-metrics {
+    padding: 1rem 0 !important;
+}
 
-    .metric-label {
-        font-size: 0.9rem;
-        color: #7f8c8d;
-        margin-bottom: 0.5rem;
-    }
+.metrics-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.5rem !important;
+}
 
-    .metric-trend {
-        font-size: 0.8rem;
-        font-weight: 600;
-        padding: 0.2rem 0.6rem;
-        border-radius: 12px;
-    }
+.metric-card {
+    text-align: center !important;
+    padding: 1.5rem !important;
+    background: #f8f9fa !important;
+    border-radius: 8px !important;
+    border-left: 4px solid #d35400 !important;
+}
 
-    .trend-up {
-        background: rgba(46, 204, 113, 0.1);
-        color: #27ae60;
-    }
+.metric-value {
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    color: #d35400 !important;
+    margin-bottom: 0.5rem !important;
+}
 
-    .trend-down {
-        background: rgba(231, 76, 60, 0.1);
-        color: #c0392b;
-    }
+.metric-label {
+    font-size: 0.9rem !important;
+    color: #7f8c8d !important;
+    margin-bottom: 0.5rem !important;
+}
 
-    .environmental-insights {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
-    }
+.metric-trend {
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    padding: 0.2rem 0.6rem !important;
+    border-radius: 12px !important;
+}
 
-    .insight-card {
-        display: flex;
-        align-items: flex-start;
-        gap: 1rem;
-        padding: 1.5rem;
-        background: #f8f9fa;
-        border-radius: 10px;
-        border-left: 4px solid #d35400;
-    }
+.trend-up { background: rgba(46, 204, 113, 0.1) !important; color: #27ae60 !important; }
+.trend-down { background: rgba(231, 76, 60, 0.1) !important; color: #c0392b !important; }
 
-    .insight-icon {
-        font-size: 2.5rem;
-        flex-shrink: 0;
-    }
+/* ================================================
+   Environmental Insights
+================================================ */
+.environmental-insights {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 1.5rem !important;
+}
 
-    .insight-content {
-        flex: 1;
-    }
+.insight-card {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+    padding: 1.5rem !important;
+    background: #f8f9fa !important;
+    border-radius: 10px !important;
+    border-left: 4px solid #d35400 !important;
+}
 
-    .insight-content h4 {
-        margin: 0 0 0.8rem 0;
-        color: #2c3e50;
-    }
+.insight-icon {
+    font-size: 2.5rem !important;
+    flex-shrink: 0 !important;
+}
 
-    .insight-content p {
-        margin: 0 0 1.5rem 0;
-        color: #7f8c8d;
-        line-height: 1.5;
-    }
+.insight-content {
+    flex: 1 !important;
+}
 
-    .insight-actions {
-        display: flex;
-        gap: 0.5rem;
-    }
+.insight-content h4 {
+    margin-bottom: 0.8rem !important;
+    color: #2c3e50 !important;
+}
 
-    .no-inspections {
-        text-align: center;
-        padding: 2rem;
-        color: #7f8c8d;
-    }
+.insight-content p {
+    margin-bottom: 1.5rem !important;
+    color: #7f8c8d !important;
+    line-height: 1.5 !important;
+}
 
-    @media (max-width: 768px) {
-        .metrics-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
+.insight-actions {
+    display: flex !important;
+    gap: 0.5rem !important;
+}
 
-        .environmental-insights {
-            grid-template-columns: 1fr;
-        }
+/* ================================================
+   Empty States
+================================================ */
+.no-inspections {
+    text-align: center !important;
+    padding: 2rem !important;
+    color: #7f8c8d !important;
+}
 
-        .inspection-item {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 1rem;
-        }
+/* ================================================
+   Responsive Adjustments
+================================================ */
+@media (max-width: 768px) {
+    .metrics-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .environmental-insights { grid-template-columns: 1fr !important; }
+    .inspection-item { flex-direction: column !important; align-items: flex-start !important; gap: 1rem !important; }
+    .inspection-actions { align-self: stretch !important; justify-content: stretch !important; }
+    .inspection-actions .btn-action { flex: 1 !important; }
+    .alert-item { flex-direction: column !important; }
+    .alert-actions { align-self: stretch !important; justify-content: stretch !important; }
+    .alert-actions .btn-action { flex: 1 !important; }
+    .alert-meta { flex-direction: column !important; gap: 0.5rem !important; }
+}
 
-        .inspection-actions {
-            align-self: stretch;
-            justify-content: stretch;
-        }
-
-        .inspection-actions .btn-action {
-            flex: 1;
-        }
-
-        .alert-item {
-            flex-direction: column;
-        }
-
-        .alert-actions {
-            align-self: stretch;
-            justify-content: stretch;
-        }
-
-        .alert-actions .btn-action {
-            flex: 1;
-        }
-
-        .alert-meta {
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .metrics-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .quick-actions-grid {
-            grid-template-columns: 1fr 1fr;
-        }
-    }
-    </style>
+@media (max-width: 480px) {
+    .metrics-grid { grid-template-columns: 1fr !important; }
+    .quick-actions-grid { grid-template-columns: 1fr 1fr !important; }
+}
+</style>
 </body>
 </html>

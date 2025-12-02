@@ -463,310 +463,378 @@ require_once '../../includes/sidebar.php';
     </script>
 
     <style>
-    .admin-header {
-        background: linear-gradient(135deg, #2c3e50, #34495e);
-    }
+  /* ===============================
+   GLOBAL STYLING
+================================= */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
 
-    .admin-sidebar {
-        background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
-    }
+/* Utility */
+.text-center { text-align: center; }
+.hidden { display: none; }
 
-    .admin-sidebar .nav-link {
-        color: #bdc3c7;
-        border-left-color: transparent;
-    }
+/* Colors */
+:root {
+    --primary: #3498db;
+    --primary-dark: #2980b9;
+    --success: #2ecc71;
+    --warning: #f39c12;
+    --danger: #e74c3c;
+    --purple: #8e44ad;
+    --gray-light: #ecf0f1;
+    --gray-dark: #34495e;
+}
 
-    .admin-sidebar .nav-link:hover,
-    .admin-sidebar .nav-link.active {
-        background: rgba(52, 152, 219, 0.1);
-        color: #3498db;
-        border-left-color: #3498db;
-    }
+/* ===============================
+   ADMIN TOP HEADER
+================================= */
+.admin-content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.8rem;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    margin-bottom: 1.5rem;
+    color: white;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
 
-    .admin-sidebar .nav-section-title {
-        color: #95a5a6;
-    }
+.admin-content-header h2 {
+    margin: 0;
+    font-size: 1.7rem;
+}
 
+.welcome-message {
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Control Buttons */
+.admin-controls {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    background: white;
+    color: var(--primary-dark);
+    padding: .7rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+    transition: .3s ease;
+}
+
+.control-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.btn-primary { background: #2980b9; color: white; }
+.btn-success { background: #27ae60; color: white; }
+
+/* Status Box */
+.system-status {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.2);
+    padding: .6rem 1rem;
+    border-radius: 8px;
+    gap: .5rem;
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.status-healthy {
+    background: var(--success);
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: .5; }
+    100% { opacity: 1; }
+}
+
+/* ===============================
+   STATS CARDS
+================================= */
+.stats-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: .3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.09);
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    top: 0;
+    left: 0;
+}
+
+.stat-card-primary::before { background: var(--primary); }
+.stat-card-success::before { background: var(--success); }
+.stat-card-warning::before { background: var(--warning); }
+.stat-card-info::before { background: var(--primary-dark); }
+.stat-card-danger::before { background: var(--danger); }
+.stat-card-purple::before { background: var(--purple); }
+
+.icon-circle {
+    width: 55px;
+    height: 55px;
+    background: var(--gray-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+.stat-content h3 {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.stat-content p {
+    margin: 0;
+    color: #7f8c8d;
+}
+
+.stat-trend {
+    font-size: .8rem;
+}
+
+.stat-action-btn {
+    padding: .4rem .9rem;
+    background: var(--primary-dark);
+    color: white;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.stat-action-btn:hover {
+    background: var(--primary);
+}
+
+/* ===============================
+   CONTENT CARD
+================================= */
+.content-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.health-badge,
+.ai-badge {
+    padding: .4rem 1rem;
+    border-radius: 20px;
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+.health-excellent {
+    background: var(--success);
+    color: white;
+}
+
+/* Health Metrics */
+.health-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.metric-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.metric-bar {
+    width: 100%;
+    height: 8px;
+    background: #ecf0f1;
+    border-radius: 6px;
+}
+
+.bar-fill {
+    height: 100%;
+    background: var(--primary);
+    border-radius: 6px;
+}
+
+/* ===============================
+   ACTIVITIES LIST
+================================= */
+.activities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.activity-item {
+    display: flex;
+    gap: 1rem;
+}
+
+.activity-icon {
+    font-size: 1.4rem;
+}
+
+.activity-content p {
+    margin: 0;
+}
+
+/* ===============================
+   DEPARTMENT GRID
+================================= */
+.performance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+    gap: 1.5rem;
+}
+
+.performance-card {
+    background: #f9f9f9;
+    border-left: 4px solid var(--primary);
+    padding: 1.2rem;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.performance-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.performance-metrics {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+/* ===============================
+   AI RECOMMENDATIONS
+================================= */
+.ai-recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap: 1.5rem;
+}
+
+.recommendation-card {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    border-left: 4px solid;
+}
+
+.recommendation-card.critical { border-left-color: var(--danger); }
+.recommendation-card.high     { border-left-color: var(--warning); }
+.recommendation-card.medium   { border-left-color: var(--primary); }
+
+.priority-badge {
+    padding: .3rem .7rem;
+    border-radius: 5px;
+    font-size: .75rem;
+    color: white;
+}
+
+.btn-action {
+    padding: .5rem 1rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--primary);
+}
+
+/* ===============================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 992px) {
     .admin-content-header {
-        background: linear-gradient(135deg, #3498db, #2980b9);
-        color: white;
-    }
-
-    .admin-content-header h2,
-    .admin-content-header .welcome-message {
-        color: white;
+        flex-direction: column;
+        text-align: center;
     }
 
     .admin-controls {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
+        justify-content: center;
     }
+}
 
-    .control-btn {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.8rem 1.5rem;
-        border: none;
-        border-radius: 8px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .system-status {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.8rem 1.2rem;
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 8px;
-        color: white;
-    }
-
-    .status-indicator {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        animation: pulse 2s infinite;
-    }
-
-    .status-healthy {
-        background: #2ecc71;
-        box-shadow: 0 0 10px #2ecc71;
-    }
-
-    @keyframes pulse {
-        0% { opacity: 1; }
-        50% { opacity: 0.5; }
-        100% { opacity: 1; }
-    }
-
-    .stat-card-purple::before {
-        background: linear-gradient(135deg, #9b59b6, #8e44ad);
+@media (max-width: 768px) {
+    .stat-card {
+        flex-direction: column;
+        text-align: center;
     }
 
     .stat-actions {
-        margin-top: 1rem;
-    }
-
-    .stat-action-btn {
-        background: rgba(255, 255, 255, 0.2);
-        color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 6px;
-        font-size: 0.8rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .stat-action-btn:hover {
-        background: rgba(255, 255, 255, 0.3);
-    }
-
-    .health-badge {
-        padding: 0.4rem 1rem;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 600;
-    }
-
-    .health-excellent {
-        background: #2ecc71;
-        color: white;
-    }
-
-    .health-metrics {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .health-metric {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .metric-info {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .metric-name {
-        color: #34495e;
-        font-weight: 500;
-    }
-
-    .metric-value {
-        color: #2c3e50;
-        font-weight: 700;
-    }
-
-    .metric-bar {
-        height: 8px;
-        background: #ecf0f1;
-        border-radius: 4px;
-        overflow: hidden;
-    }
-
-    .bar-fill {
-        height: 100%;
-        background: linear-gradient(90deg, #3498db, #2980b9);
-        border-radius: 4px;
-        transition: width 1s ease;
-    }
-
-    .department-performance {
-        margin-top: 1rem;
-    }
-
-    .performance-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-    }
-
-    .performance-card {
-        background: #f8f9fa;
-        padding: 1.5rem;
-        border-radius: 10px;
-        border-left: 4px solid #3498db;
-        transition: all 0.3s ease;
-    }
-
-    .performance-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    .dept-icon {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .dept-info h4 {
-        margin: 0 0 0.5rem 0;
-        color: #2c3e50;
-    }
-
-    .dept-info p {
-        margin: 0;
-        color: #7f8c8d;
-        font-size: 0.9rem;
-    }
-
-    .performance-metrics {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-
-    .performance-metrics .metric {
         text-align: center;
-        padding: 0.8rem;
-        background: white;
-        border-radius: 6px;
+        width: 100%;
     }
+}
 
-    .ai-recommendations-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 1.5rem;
-        margin-top: 1rem;
-    }
-
-    .recommendation-card {
-        padding: 1.5rem;
-        border-radius: 10px;
-        border-left: 4px solid;
-    }
-
-    .recommendation-card.critical {
-        background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), transparent);
-        border-left-color: #e74c3c;
-    }
-
-    .recommendation-card.high {
-        background: linear-gradient(135deg, rgba(243, 156, 18, 0.1), transparent);
-        border-left-color: #f39c12;
-    }
-
-    .recommendation-card.medium {
-        background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), transparent);
-        border-left-color: #3498db;
-    }
-
-    .recommendation-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 1rem;
-    }
-
-    .recommendation-header h4 {
-        margin: 0;
-        color: #2c3e50;
-    }
-
-    .header-actions {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .header-btn {
-        position: relative;
-        background: rgba(255, 255, 255, 0.2);
-        border: none;
-        color: white;
-        padding: 0.8rem;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .header-btn:hover {
-        background: rgba(255, 255, 255, 0.3);
-    }
-
-    .notification-count {
-        position: absolute;
-        top: -5px;
-        right: -5px;
-        background: #e74c3c;
-        color: white;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        font-size: 0.7rem;
-        display: flex;
-        align-items: center;
+@media (max-width: 600px) {
+    .control-btn {
+        width: 100%;
         justify-content: center;
     }
 
-    @media (max-width: 768px) {
-        .admin-controls {
-            flex-direction: column;
-            align-items: stretch;
-        }
-
-        .performance-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .ai-recommendations-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .header-actions {
-            flex-direction: column;
-        }
+    .activities-list .activity-item {
+        flex-direction: column;
+        text-align: center;
     }
+}
     </style>
 </body>
 </html>

@@ -83,337 +83,372 @@ if (isset($_SESSION['user_id'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
-    :root {
-        --primary-blue: #1a73e8;
-        --teal: #009688;
-        --green: #4caf50;
-        --white: #ffffff;
-        --navy: #0d47a1;
-        --light-gray: #f5f5f5;
-        --dark-gray: #424242;
-    }
-    
+   :root {
+    --primary-blue: #1a73e8;
+    --teal: #009688;
+    --green: #4caf50;
+    --white: #ffffff;
+    --navy: #0d47a1;
+    --light-gray: #f5f5f5;
+    --dark-gray: #424242;
+}
+
+/* ======= GLOBAL ======= */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* ======= MAIN CONTAINER ======= */
+.login-container {
+    padding: 10px;
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    height: 90vh;
+    max-height: 700px;
+    width: 95%;
+    max-width: 1200px;
+}
+
+/* ======= LEFT SIDE CAROUSEL ======= */
+.carousel-section {
+    background: linear-gradient(135deg, var(--primary-blue), var(--navy));
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.carousel-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.carousel-item,
+.carousel-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.carousel-content {
+    position: absolute;
+    bottom: 60px;
+    left: 40px;
+    right: 40px;
+    color: var(--white);
+    z-index: 2;
+}
+
+.carousel-content h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-content p {
+    font-size: 1rem;
+    margin-bottom: 8rem;
+    opacity: 0.9;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* ======= LOGIN SECTION ======= */
+.login-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--white);
+}
+
+.logo-container {
+    text-align: center;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--navy));
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 0.5rem;
+}
+
+.logo-icon {
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.logo-image {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    border-radius: 50px;
+}
+
+.login-title {
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.login-subtitle {
+    font-size: 0.95rem;
+    color: var(--dark-gray);
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-label {
+    color: var(--dark-gray);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-control {
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    height: 45px;
+    transition: 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 0.2rem rgba(26, 115, 232, 0.25);
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--dark-gray);
+}
+
+.input-with-icon {
+    padding-left: 45px;
+}
+
+.btn-login {
+    background: linear-gradient(135deg, var(--primary-blue), var(--navy));
+    border: none;
+    border-radius: 10px;
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    width: 100%;
+    height: 45px;
+    transition: 0.3s ease;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(26, 115, 232, 0.3);
+}
+
+.alert {
+    border-radius: 10px;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+}
+
+/* ======= RESPONSIVE MEDIA QUERIES ======= */
+
+/* ========================== */
+/*   TABLET VIEW ≤ 992px      */
+/* ========================== */
+@media (max-width: 992px) {
+
     body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        height: 100vh;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
+        padding: 0;
+        overflow-y: auto;
     }
-    
+
     .login-container {
-        padding:  10px;
-        background: var(--white);
-        border-radius: 10px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        height: 90vh;
-        max-height: 700px;
-        width: 95%;
-        max-width: 1200px;
+        height: auto;
+        max-height: none;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
-    
+
     .carousel-section {
-        background: linear-gradient(135deg, var(--primary-blue), var(--navy));
-        position: relative;
-        overflow: hidden;
-        height: 100%;
+        height: 40vh;
     }
-    
-    .carousel-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.3);
-        z-index: 1;
-    }
-    
-    .carousel-item {
-        height: 100%;
-        position: relative;
-    }
-    
-    .carousel-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    
-    .carousel-content {
-        position: absolute;
-        bottom: 60px;
-        left: 40px;
-        right: 40px;
-        color: var(--white);
-        z-index: 2;
-    }
-    
+
     .carousel-content h3 {
-        font-size: 1.8rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        font-size: 1.4rem;
     }
-    
+
     .carousel-content p {
-        font-size: 1rem;
-        opacity: 0.9;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        margin-bottom: 8rem;
+        font-size: 0.9rem;
     }
-    
+
     .login-section {
-        display: flex;
+        padding: 1.5rem !important;
+    }
+}
+
+/* ========================== */
+/*   MOBILE VIEW ≤ 768px      */
+/* ========================== */
+@media (max-width: 768px) {
+
+    .login-container {
         flex-direction: column;
-        justify-content: center;
-        background: var(--white);
+        height: auto;
+        max-height: none;
     }
-    
-    .logo-container {
-        text-align: center;
+
+    /* Enable carousel on mobile */
+    .d-none.d-md-block {
+        display: block !important;
     }
-    
+
+    .carousel-section {
+        height: 32vh;
+    }
+
+    .carousel-item {
+        height: 32vh;
+    }
+
+    .carousel-content {
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+    }
+
+    .carousel-content h3 {
+        font-size: 1.2rem;
+    }
+
     .logo {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 80px;
-        height: 80px;
-        background: linear-gradient(135deg, var(--primary-blue), var(--navy));
-        border-radius: 50%;
-        margin-bottom: 0.5rem;
+        width: 65px;
+        height: 65px;
     }
-    
+
     .logo-icon {
-        font-size: 2rem;
-        color: var(--white);
+        font-size: 1.6rem;
     }
-    
+
+    .login-section {
+        padding: 1.3rem !important;
+        height: auto;
+    }
+
     .login-title {
-        color: var(--navy);
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        font-size: 1.8rem;
+        font-size: 1.4rem;
     }
-    
-    .login-subtitle {
-        color: var(--dark-gray);
-        margin-bottom: 1.0rem;
-        font-size: 0.95rem;
+}
+
+/* ========================== */
+/*   SMALL PHONES ≤ 576px     */
+/* ========================== */
+@media (max-width: 576px) {
+
+    body {
+        padding: 8px;
     }
-    
-    .form-group {
-        margin-bottom: 1.2rem;
-    }
-    
-    .form-label {
-        color: var(--dark-gray);
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        font-size: 0.9rem;
-    }
-    
-    .form-control {
-        border: 2px solid #e9ecef;
-        border-radius: 10px;
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-        height: 45px;
-    }
-    
-    .form-control:focus {
-        border-color: var(--primary-blue);
-        box-shadow: 0 0 0 0.2rem rgba(26, 115, 232, 0.25);
-    }
-    
-    .input-group {
-        position: relative;
-    }
-    
-    .input-icon {
-        position: absolute;
-        left: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: var(--dark-gray);
-        z-index: 3;
-    }
-    
-    .input-with-icon {
-        padding-left: 45px;
-    }
-    
-    .btn-login {
-        background: linear-gradient(135deg, var(--primary-blue), var(--navy));
-        border: none;
-        border-radius: 10px;
-        padding: 0.7rem 2rem;
-        font-size: 1rem;
-        font-weight: 600;
-        color: var(--white);
-        transition: all 0.3s ease;
+
+    .login-container {
         width: 100%;
-        height: 45px;
+        height: auto;
+        padding: 0;
     }
-    
-    .btn-login:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(26, 115, 232, 0.3);
+
+    .carousel-section {
+        height: 28vh;
     }
-    
-    .demo-credentials {
-        background: var(--light-gray);
-        border-radius: 10px;
-        padding: 1.2rem;
-        margin-top: 1.5rem;
+
+    .carousel-item {
+        height: 28vh;
     }
-    
-    .demo-title {
-        color: var(--navy);
-        font-weight: 600;
-        margin-bottom: 0.8rem;
-        font-size: 0.9rem;
+
+    .login-section {
+        padding: 1rem !important;
     }
-    
-    .credential-item {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 0.4rem;
-        padding: 0.4rem 0;
-        border-bottom: 1px solid #dee2e6;
+
+    .form-control {
+        height: 42px;
         font-size: 0.85rem;
     }
-    
-    .credential-item:last-child {
-        border-bottom: none;
-        margin-bottom: 0;
-    }
-    
-    .role-badge {
-        background: var(--primary-blue);
-        color: var(--white);
-        padding: 0.2rem 0.6rem;
-        border-radius: 12px;
-        font-size: 0.75rem;
-        font-weight: 500;
-    }
-    
-    .alert {
-        border-radius: 10px;
-        border: none;
-        padding: 0.8rem 1.2rem;
-        margin-bottom: 1.2rem;
+
+    .btn-login {
+        height: 42px;
         font-size: 0.9rem;
     }
-    
-    .carousel-indicators [data-bs-target] {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        margin: 0 4px;
-    }
-    
-    .carousel-control-prev,
-    .carousel-control-next {
-        width: 40px;
-        height: 40px;
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
-        top: 50%;
-        transform: translateY(-50%);
-        margin: 0 15px;
+
+    .logo {
+        width: 55px;
+        height: 55px;
     }
 
-    /* Remove any vertical scrolling */
-    .login-section::-webkit-scrollbar {
-        width: 0;
-        background: transparent;
-    }
-
-    @media (max-width: 768px) {
-        .login-container {
-            height: 95vh;
-            width: 95%;
-            margin: 0 auto;
-        }
-        
-        .carousel-section {
-            height: 35vh;
-        }
-        
-        .carousel-item {
-            height: 35vh;
-        }
-        
-        .carousel-content {
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-        }
-        
-        .carousel-content h3 {
-            font-size: 1.3rem;
-        }
-        
-        .carousel-content p {
-            font-size: 0.9rem;
-        }
-        
-        .login-section {
-            padding: 1.5rem;
-            height: 60vh;
-        }
-        
-        .logo {
-            width: 60px;
-            height: 60px;
-        }
-        
-        .logo-icon {
-            font-size: 1.7rem;
-        }
-        
-        .login-title {
-            font-size: 1.5rem;
-        }
-    }
-
-    @media (max-width: 576px) {
-        body {
-            padding: 10px;
-        }
-        
-        .login-container {
-            height: 98vh;
-            width: 100%;
-        }
-        
-        .carousel-section {
-            height: 30vh;
-        }
-        
-        .carousel-item {
-            height: 30vh;
-        }
-        
-        .login-section {
-            height: 68vh;
-            padding: 1rem;
-        }
-    }
     .logo-image {
-    width: 90px;  /* Adjust size as needed */
-    height: 90px; /* Adjust size as needed */
-    object-fit: contain;
-    border-radius: 50px; /* Optional: remove if you don't want rounded corners */
+        width: 55px;
+        height: 55px;
     }
+
+    .login-title {
+        font-size: 1.3rem;
+    }
+}
+
+/* ========================== */
+/* VERY SMALL PHONES ≤ 400px  */
+/* ========================== */
+@media (max-width: 400px) {
+
+    .carousel-section {
+        height: 24vh;
+    }
+
+    .carousel-content h3 {
+        font-size: 1rem;
+    }
+
+    .carousel-content p {
+        font-size: 0.75rem;
+    }
+
+    .login-title {
+        font-size: 1.2rem;
+    }
+
+    .login-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+}
+
 </style>
 </head>
 <body>
